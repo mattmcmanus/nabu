@@ -1,26 +1,6 @@
 # nabu
 
-Static Site Generator
-
-## Getting Started
-Install the module with: `npm install nabu`
-
-```javascript
-var nabu = require('nabu');
-nabu.awesome(); // "awesome"
-```
-
-## Documentation
-_(Coming soon)_
-
-## Examples
-_(Coming soon)_
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
+This is very much a work in progress and a personal attempt to learn a few things. It will be a while before it's usable by anyone. 
 
 ## License
 Copyright (c) 2013 Matt McManus  
