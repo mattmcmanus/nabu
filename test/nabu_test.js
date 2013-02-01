@@ -1,6 +1,8 @@
 'use strict';
 
-var nabu = require('../lib/nabu.js');
+var nabu = require('../lib/nabu.js'),
+    fs = require('fs'),
+    rimraf = require('rimraf');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -22,7 +24,9 @@ var nabu = require('../lib/nabu.js');
     test.ifError(value)
 */
 
-exports['loadFiles'] = {
+var site = {};
+
+exports['loadPosts'] = {
   setUp: function(done) {
     // setup here
     done();
@@ -30,9 +34,36 @@ exports['loadFiles'] = {
   'no args': function(test) {
     test.expect(1);
     // tests here
-    var site = nabu.loadFiles();
-    console.log(site);
+    site = nabu.loadPosts('/Users/matt/www/nabu-site/**/*.markdown');
+
     test.ok(site,'should be awesome.');
+    test.done();
+  },
+};
+
+exports['parseMarkdown'] = {
+  'no args': function(test) {
+    test.expect(1);
+    // tests here
+    site.posts = nabu.parseMarkdown(site.posts);
+
+    test.ok(site,'should be awesome.');
+    test.done();
+  },
+};
+
+exports['renderSite'] = {
+  setUp: function(done){
+    rimraf('./_site', function(err){
+      if (err) {throw err;}
+      done();
+    });
+  },
+  'no args': function(test) {
+    test.expect(1);
+    // tests here
+    nabu.renderSite();
+    test.ok(fs.existsSync('./_site'), "Does not throw a fatal error");
     test.done();
   },
 };

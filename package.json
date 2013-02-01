@@ -31,12 +31,20 @@
     "grunt-contrib-jshint": "0.1.1rc6",
     "grunt-contrib-nodeunit": "0.1.2rc6",
     "grunt-contrib-watch": "0.2.0rc5",
-    "grunt": "0.4.0rc6"
+    "grunt": "0.4.0rc6",
+    "rimraf": "~2.1.2"
   },
   "keywords": [],
   "dependencies": {
     "marked": "~0.2.7",
     "glob-whatev": "~0.1.8",
-    "front-matter": "~0.1.1"
+    "front-matter": "~0.1.1",
+    "underscore": "~1.4.4",
+    "commander": "~1.1.1",
+    "consolidate": "~0.8.0",
+    "mkdirp": "~0.3.4",
+    "slugs": "~0.1.2",
+    "jade": "~0.28.1",
+    "async": "~0.1.22"
   }
 }
