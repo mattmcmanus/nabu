@@ -1,0 +1,42 @@
+{
+  "name": "nabu",
+  "description": "Static Site Generator",
+  "version": "0.1.0",
+  "homepage": "https://github.com/mattmcmanus/nabu",
+  "author": {
+    "name": "Matt McManus",
+    "email": "mattmcmanus@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattmcmanus/nabu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mattmcmanus/nabu/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/mattmcmanus/nabu/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/nabu",
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "0.1.1rc6",
+    "grunt-contrib-nodeunit": "0.1.2rc6",
+    "grunt-contrib-watch": "0.2.0rc5",
+    "grunt": "0.4.0rc6"
+  },
+  "keywords": [],
+  "dependencies": {
+    "marked": "~0.2.7",
+    "glob-whatev": "~0.1.8",
+    "front-matter": "~0.1.1"
+  }
+}
