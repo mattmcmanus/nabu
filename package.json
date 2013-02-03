@@ -46,8 +46,9 @@
     "commander": "~1.1.1",
     "consolidate": "~0.8.0",
     "mkdirp": "~0.3.4",
-    "slugs": "~0.1.2",
     "jade": "~0.28.1",
-    "async": "~0.1.22"
+    "async": "~0.1.22",
+    "moment": "~1.7.2",
+    "underscore.string": "~2.3.1"
   }
 }
