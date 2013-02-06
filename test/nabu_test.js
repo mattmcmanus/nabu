@@ -26,22 +26,28 @@ var nabu = require('../lib/nabu.js'),
 
 // var site = {};
 
-// exports['loadFiles'] = {
-//   setUp: function(done) {
-//     // setup here
-//     done();
-//   },
-//   'no args': function(test) {
-//     test.expect(1);
-//     // tests here
-//     nabu.loadFiles('/Users/matt/www/nabu-site/**/*.markdown');
-
-//     test.ok(site,'should be awesome.');
-//     test.done();
-//   },
-// };
+exports['loadFiles'] = {
+  setUp: function(done) {
+    // setup here
+    done();
+  },
+  'no args': function(test) {
+    test.expect(2);
+    // tests here
+    var files = nabu.loadFiles('./test/fixtures/**/*.*');
+    console.log(files);
+    test.equal(files.posts.length, 1);
+    test.equal(files.assets.length, 2);
+    test.done();
+  },
+};
 
 exports['processFile'] = {
+  setUp: function(done) {
+    // setup here
+    nabu.bootstrap();
+    done();
+  },
   'process a post': function(test) {
     test.expect(3);
     // tests here
