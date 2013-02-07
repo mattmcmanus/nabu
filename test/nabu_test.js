@@ -1,7 +1,8 @@
 'use strict';
 
 var nabu = require('../lib/nabu.js'),
-    // fs = require('fs'),
+    fs = require('fs'),
+    rimraf = require('rimraf'),
     path = require('path');
 
 /*
@@ -34,8 +35,8 @@ exports['loadFiles'] = {
   'no args': function(test) {
     test.expect(2);
     // tests here
-    var files = nabu.loadFiles('./test/fixtures/**/*.*');
-    console.log(files);
+    nabu.bootstrap('test/fixtures');
+    var files = nabu.loadFiles();
     test.equal(files.posts.length, 1);
     test.equal(files.assets.length, 2);
     test.done();
@@ -45,13 +46,12 @@ exports['loadFiles'] = {
 exports['processFile'] = {
   setUp: function(done) {
     // setup here
-    nabu.bootstrap();
     done();
   },
   'process a post': function(test) {
     test.expect(3);
     // tests here
-    var post = nabu.processFile(path.resolve('./test/fixtures/sample.md'));
+    var post = nabu.processFile(path.resolve('./sample.md'));
 
     test.ok(post,'Post should be truthy');
     test.equal(post.title, 'Sampled');
@@ -62,18 +62,18 @@ exports['processFile'] = {
 };
 
 
-// exports['renderSite'] = {
-//   setUp: function(done){
-//     rimraf('./_site', function(err){
-//       if (err) {throw err;}
-//       done();
-//     });
-//   },
-//   'no args': function(test) {
-//     test.expect(1);
-//     // tests here
-//     nabu.renderSite();
-//     test.ok(fs.existsSync('./_site'), "Does not throw a fatal error");
-//     test.done();
-//   },
-// };
+exports['generate'] = {
+  setUp: function(done){
+    rimraf('./_site', function(err){
+      if (err) {throw err;}
+    });
+    done();
+  },
+  'no args': function(test) {
+    test.expect(1);
+    // tests here
+    test.doesNotThrow(nabu.generate(), Error, 'Does not error');
+    test.ok(fs.existsSync('./_site'), "_site dir exists");
+    test.done();
+  },
+};

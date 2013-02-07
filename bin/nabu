@@ -35,7 +35,7 @@ program
   .action(function(){
     'use strict';
     console.log('Generating stuff and things');
-    nabu.generate(cwd);
+    nabu.generate();
   });
 
  program.parse(process.argv);

@@ -1,5 +1,5 @@
 ---
-layout: beer
+layout: post
 title: Day 1 - Monastery of Christ in the Desert Monks Wit
 day: 1
 brewery: Monastery of Christ in the&nbsp;Desert
