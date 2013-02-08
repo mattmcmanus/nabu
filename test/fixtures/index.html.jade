@@ -1,7 +1,8 @@
----
-layout: default
----
+extend _layouts/default
+
 block content
+  h2 BLOGZ!
   for post in posts
-    h1=post.title
+    h1
+      a(href=post.permalink)=post.title
     !=post.content

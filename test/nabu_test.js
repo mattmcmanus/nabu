@@ -33,12 +33,14 @@ exports['loadFiles'] = {
     done();
   },
   'no args': function(test) {
-    test.expect(2);
+    test.expect(4);
     // tests here
     nabu.bootstrap('test/fixtures');
     var files = nabu.loadFiles();
-    test.equal(files.posts.length, 1);
+    test.equal(files.posts.length, 2);
     test.equal(files.assets.length, 2);
+    test.equal(files.pages.length, 1);
+    test.equal(files.templates.length, 1);
     test.done();
   },
 };
@@ -64,16 +66,15 @@ exports['processFile'] = {
 
 exports['generate'] = {
   setUp: function(done){
-    rimraf('./_site', function(err){
-      if (err) {throw err;}
-    });
+    rimraf.sync('_site');
     done();
   },
   'no args': function(test) {
-    test.expect(1);
+    test.expect(2);
     // tests here
-    test.doesNotThrow(nabu.generate(), Error, 'Does not error');
-    test.ok(fs.existsSync('./_site'), "_site dir exists");
+    nabu.generate();
+    test.ok(fs.existsSync('_site'), "_site dir exists");
+    test.ok(fs.existsSync('_site/index.html'), "The homepage exists");
     test.done();
   },
 };
