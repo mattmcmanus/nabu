@@ -45,7 +45,7 @@ exports['loadFiles'] = {
   },
 };
 
-exports['processFile'] = {
+exports['processContent'] = {
   setUp: function(done) {
     // setup here
     done();
@@ -53,7 +53,7 @@ exports['processFile'] = {
   'process a post': function(test) {
     test.expect(3);
     // tests here
-    var post = nabu.processFile(path.resolve('./sample.md'));
+    var post = nabu.processContent(path.resolve('./sample.md'));
 
     test.ok(post,'Post should be truthy');
     test.equal(post.title, 'Sampled');
@@ -70,11 +70,12 @@ exports['generate'] = {
     done();
   },
   'no args': function(test) {
-    test.expect(2);
+    test.expect(3);
     // tests here
     nabu.generate();
     test.ok(fs.existsSync('_site'), "_site dir exists");
     test.ok(fs.existsSync('_site/index.html'), "The homepage exists");
+    test.ok(fs.existsSync('_site/images/anchor-porter.jpg'), "The image exists");
     test.done();
   },
 };
