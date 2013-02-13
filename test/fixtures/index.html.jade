@@ -2,7 +2,7 @@ extend _layouts/default
 
 block content
   h2 BLOGZ!
-  for post in posts
+  for post in site.posts
     h1
       a(href=post.permalink)=post.title
     !=post.content
