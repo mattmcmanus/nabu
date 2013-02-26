@@ -27,55 +27,49 @@ var nabu = require('../lib/nabu.js'),
 
 // var site = {};
 
-exports['loadFiles'] = {
+exports['nabu'] = {
   setUp: function(done) {
-    // setup here
     done();
   },
-  'no args': function(test) {
-    test.expect(4);
+  'bootstrap': function(test) {
+    test.expect(1);
     // tests here
-    nabu.bootstrap('test/fixtures');
+    nabu.bootstrap('./test/fixtures');
+    var nabuData = nabu.returnSelf();
+
+    test.ok(nabuData,'There should be a nabu object');
+
+    test.done();
+  },
+  'loadFiles': function(test) {
+    test.expect(2);
+    
     var files = nabu.loadFiles();
-    test.equal(files.posts.length, 2);
-    test.equal(files.assets.length, 2);
-    test.equal(files.pages.length, 1);
-    test.equal(files.templates.length, 1);
+    test.ok((files.length > 1));
+    test.ok((files.indexOf('_config.json') === -1), "It should ignore the config file");
     test.done();
   },
-};
-
-exports['processContent'] = {
-  setUp: function(done) {
-    // setup here
-    done();
+  'processFiles': function(test) {
+    test.expect(2);
+    
+    nabu.processFiles(function(err){
+      var nabuData = nabu.returnSelf();
+      test.ok(nabuData, "There shold be a nabu object");
+      test.ok((nabuData.site.pages.length > 0), "There shold be at least 1 page");
+      test.done();
+    });
+    
   },
-  'process a post': function(test) {
-    test.expect(3);
-    // tests here
-    var post = nabu.processContent(path.resolve('./sample.md'));
-
-    test.ok(post,'Post should be truthy');
-    test.equal(post.title, 'Sampled');
-    test.ok(post.content.match(/<h2>Santas<\/h2>/));
-
-    test.done();
-  },
-};
-
-
-exports['generate'] = {
-  setUp: function(done){
-    rimraf.sync('_site');
-    done();
-  },
-  'no args': function(test) {
-    test.expect(3);
-    // tests here
-    nabu.generate();
-    test.ok(fs.existsSync('_site'), "_site dir exists");
-    test.ok(fs.existsSync('_site/index.html'), "The homepage exists");
-    test.ok(fs.existsSync('_site/images/anchor-porter.jpg'), "The image exists");
-    test.done();
-  },
+  // 'generate': function(test) {
+  //   test.expect(3);
+  //   // tests here
+  //   nabu.generate();
+  //   test.ok(fs.existsSync('_site'), "_site dir exists");
+  //   test.ok(fs.existsSync('_site/index.html'), "The homepage exists");
+  //   test.ok(fs.existsSync('_site/images/anchor-porter.jpg'), "The image exists");
+  //   test.done();
+  // },
+  tearDown: function(done) {
+    rimraf('_site', done);
+  }
 };

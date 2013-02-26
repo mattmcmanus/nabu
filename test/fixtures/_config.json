@@ -1,0 +1,8 @@
+{
+  "title": "The Node Aesthetic",
+  "server_port": 4000,
+  "url": "",
+  "permalink": "/:year/:title/",
+  "paginate": 10,
+  "plugins": ["blog", "pages"]
+}

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Sampled"
-date: 2013-01-28 20:50
 comments: true
 categories: Super
 ---

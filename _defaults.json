@@ -16,6 +16,8 @@
   "template_engine": "jade",
   "permalink":   "date",
 
+  "plugins": [],
+
   "marked":{
     "gfm": true,
     "tables": true,
