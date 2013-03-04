@@ -32,30 +32,29 @@ exports['nabu'] = {
     done();
   },
   'bootstrap': function(test) {
-    test.expect(1);
+    test.expect(2);
     // tests here
     nabu.bootstrap('./test/fixtures');
-    var nabuData = nabu.returnSelf();
 
-    test.ok(nabuData,'There should be a nabu object');
+    test.ok(nabu,'There should be a nabu object');
+    test.equal(nabu.site.destination, './_site', 'Destination dir should be _site');
 
     test.done();
   },
   'loadFiles': function(test) {
     test.expect(2);
     
-    var files = nabu.loadFiles();
-    test.ok((files.length > 1));
-    test.ok((files.indexOf('_config.json') === -1), "It should ignore the config file");
+    nabu.loadFiles();
+    test.ok((nabu._files.length > 1));
+    test.ok((nabu._files.indexOf('./_config.json') === -1), "It should ignore the config file");
     test.done();
   },
   'processFiles': function(test) {
     test.expect(2);
     
     nabu.processFiles(function(err){
-      var nabuData = nabu.returnSelf();
-      test.ok(nabuData, "There shold be a nabu object");
-      test.ok((nabuData.site.pages.length > 0), "There shold be at least 1 page");
+      test.ok(nabu, "There shold be a nabu object");
+      test.ok(nabu.site.assets, "There shold be at least 1 page");
       test.done();
     });
     

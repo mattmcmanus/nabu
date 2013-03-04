@@ -10,6 +10,7 @@
 
   "source":      ".",
   "destination": "./_site",
+  "ignore": ["_config.json","package.json", "Gruntfile.js"],
 
   "future":      true,
   "markdown":    "marked",

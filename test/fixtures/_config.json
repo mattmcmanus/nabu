@@ -4,5 +4,5 @@
   "url": "",
   "permalink": "/:year/:title/",
   "paginate": 10,
-  "plugins": ["blog", "pages"]
+  "plugins": ["assets", "layouts"]
 }
