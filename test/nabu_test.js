@@ -49,10 +49,10 @@ exports['nabu'] = {
     test.ok((nabu._files.indexOf('./_config.json') === -1), "It should ignore the config file");
     test.done();
   },
-  'processFiles': function(test) {
+  'parseFiles': function(test) {
     test.expect(2);
     
-    nabu.processFiles(function(err){
+    nabu.parseFiles(function(err){
       test.ok(nabu, "There shold be a nabu object");
       test.ok(nabu.site.assets, "There shold be at least 1 page");
       test.done();
