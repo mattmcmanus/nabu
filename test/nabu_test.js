@@ -31,6 +31,7 @@ exports['nabu'] = {
   setUp: function(done) {
     done();
   },
+
   'bootstrap': function(test) {
     test.expect(2);
     // tests here
@@ -41,6 +42,7 @@ exports['nabu'] = {
 
     test.done();
   },
+
   'loadFiles': function(test) {
     test.expect(2);
     
@@ -49,25 +51,17 @@ exports['nabu'] = {
     test.ok((nabu._files.indexOf('./_config.json') === -1), "It should ignore the config file");
     test.done();
   },
+
   'parseFiles': function(test) {
     test.expect(2);
     
     nabu.parseFiles(function(err){
       test.ok(nabu, "There shold be a nabu object");
-      test.ok(nabu.site.assets, "There shold be at least 1 page");
+      test.ok(nabu.site.assets, "There should be at least 1 asset");
       test.done();
     });
-    
   },
-  // 'generate': function(test) {
-  //   test.expect(3);
-  //   // tests here
-  //   nabu.generate();
-  //   test.ok(fs.existsSync('_site'), "_site dir exists");
-  //   test.ok(fs.existsSync('_site/index.html'), "The homepage exists");
-  //   test.ok(fs.existsSync('_site/images/anchor-porter.jpg'), "The image exists");
-  //   test.done();
-  // },
+
   tearDown: function(done) {
     rimraf('_site', done);
   }
