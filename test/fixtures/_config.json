@@ -4,6 +4,6 @@
   "url": "",
   "permalink": "/:year/:title/",
   "paginate": 10,
-  "plugins": ["assets"],
+  "plugins": ["assets", "blog"],
   "render": "jade"
 }

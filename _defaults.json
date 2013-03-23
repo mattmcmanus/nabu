@@ -15,7 +15,7 @@
   "template_engine": "jade",
   "permalink":   "date",
 
-  "loggingLevel": "warn",
+  "loggingLevel": "silly",
 
   "plugins": [],
 
