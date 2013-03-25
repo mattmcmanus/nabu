@@ -72,16 +72,18 @@ process.chdir('./test/fixtures');
 // };
 
 
-var nabu2;
+var nabu2, generator;
 
 exports['commands'] = {
   setUp: function(done) {
     nabu2 = require('../lib/nabu.js');
+    generator = nabu2();
+    console.log(generator);
     done();
   },
   'generate()': function(test) {
     test.expect(2);
-    nabu2.generate(function(err, result){
+    generator.generate(function(err, result){
       test.equal(err, null, 'There should be no returned errors');
       test.equal(result, 0, 'The result of generate should be an exit code of 0');
       test.done();
