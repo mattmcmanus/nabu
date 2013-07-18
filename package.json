@@ -1,7 +1,7 @@
 {
   "name": "nabu",
   "description": "Static Site Generator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/mattmcmanus/nabu",
   "author": {
     "name": "Matt McManus",
