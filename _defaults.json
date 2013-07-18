@@ -8,7 +8,7 @@
 
   "source":      ".",
   "destination": "./_site",
-  "ignore": ["_config.json","package.json", "Gruntfile.js"],
+  "ignore": ["_config.json","package.json", "Gruntfile.js", "_site", "node_modules"],
 
   "future":      true,
   "markdown":    "marked",
