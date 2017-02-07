@@ -1,5 +1,7 @@
 # Danger! This code isn't even alpha
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mattmcmanus/nabu.svg)](https://greenkeeper.io/)
+
 # Nabu {version}
 
 Nabu is an simple, node.js powered, static site generator heavily inspired by [Jekyll](http://jekyllrb.com/). 
